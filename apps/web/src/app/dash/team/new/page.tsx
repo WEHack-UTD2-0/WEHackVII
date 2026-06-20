@@ -1,3 +1,4 @@
+// Force cache bust update
 import c from "config";
 
 export const dynamic = "force-dynamic";

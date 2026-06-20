@@ -4,6 +4,8 @@ import c from "config";
 import { Instagram, Facebook, Twitter, Github } from "lucide-react";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 const oswald = Oswald({
 	variable: "--font-oswald",
 	subsets: ["latin"],

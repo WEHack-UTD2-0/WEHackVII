@@ -221,5 +221,3 @@ function getDietaryRestrictionBreakdown(users: User[]) {
 
 	return { vegan, veg, halal, gf, nuts, fish, wheat, dairy, eggs, kosher, soy, none };
 }
-
-export const runtime = "edge";

@@ -1,3 +1,4 @@
+// Cache bust: standard runtime deployment active
 import { Overview } from "@/components/admin/landing/Overview";
 import {
 	Card,
@@ -221,5 +222,3 @@ function getDietaryRestrictionBreakdown(users: User[]) {
 
 	return { vegan, veg, halal, gf, nuts, fish, wheat, dairy, eggs, kosher, soy, none };
 }
-
-export const runtime = "edge";

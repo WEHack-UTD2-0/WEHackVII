@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import EditEventForm from "@/components/events/admin/EditEventForm";
 
 export const dynamic = "force-dynamic";
+export const dynamicParams = true;
 
 export default async function EditEventPage({
 	params,

@@ -8,6 +8,8 @@ import Script from "next/script";
 import { Inknut_Antiqua, Nunito, Junge, Julius_Sans_One, Righteous, Darker_Grotesque, Sriracha, Cinzel_Decorative, Gantari, Marcellus, Cormorant_Garamond} from "next/font/google";
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 const righteous = Righteous({
 	subsets: ['latin'],
 	variable: '--font-righteous',

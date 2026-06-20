@@ -11,6 +11,8 @@ import ClientToast from "@/components/shared/ClientToast";
 import { redirect } from "next/navigation";
 import { getUser } from "db/functions";
 
+export const dynamic = "force-dynamic";
+
 interface AdminLayoutProps {
 	children: React.ReactNode;
 }

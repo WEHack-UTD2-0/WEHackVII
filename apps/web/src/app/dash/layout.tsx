@@ -12,6 +12,8 @@ import ClientToast from "@/components/shared/ClientToast";
 import { TRPCReactProvider } from "@/trpc/react";
 import { getUser } from "db/functions";
 
+export const dynamic = "force-dynamic";
+
 interface DashLayoutProps {
 	children: React.ReactNode;
 }

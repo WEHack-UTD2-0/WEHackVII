@@ -1,5 +1,7 @@
 // import Menu from "@/app/sections/Menu/Menu";
 
+export const dynamic = "force-dynamic";
+
 export default async function page() {
     return(
         <div className="px-5 pb-40">

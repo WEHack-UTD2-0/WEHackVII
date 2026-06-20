@@ -2,6 +2,7 @@ import { auth } from "@clerk/nextjs";
 import c from "config";
 import { createQRpayload } from "@/lib/utils/shared/qr";
 
+export const dynamic = "force-dynamic";
 // HackKit Bubbles
 
 import { Countdown } from "@/components/dash/overview/ClientBubbles";
@@ -44,4 +45,3 @@ export default async function Page() {
 	);
 }
 
-export const runtime = "edge";

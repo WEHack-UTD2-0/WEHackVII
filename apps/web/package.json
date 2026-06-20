@@ -99,6 +99,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "dotenv-cli": "^7.4.2",
     "esbuild-register": "^3.5.0"
   }
 }

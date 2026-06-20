@@ -362,6 +362,9 @@ importers:
         specifier: ^3.23.8
         version: 3.23.8
     devDependencies:
+      dotenv-cli:
+        specifier: ^7.4.2
+        version: 7.4.2
       esbuild-register:
         specifier: ^3.5.0
         version: 3.5.0(esbuild@0.24.0)

@@ -1,6 +1,8 @@
 import c from "config";
 import NewTeamForm from "@/components/dash/main/team/NewTeam";
 
+export const dynamic = "force-dynamic";
+
 export default async function Page() {
 	return (
 		<main className="mx-auto mt-16 flex min-h-[70%] w-full max-w-5xl flex-col items-center">

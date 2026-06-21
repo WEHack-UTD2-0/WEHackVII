@@ -1,5 +1,7 @@
 import TicketList from "@/components/dash/tickets/TicketList";
 
+export const dynamic = "force-dynamic";
+
 export default function TicketsLayout({
 	children,
 }: {

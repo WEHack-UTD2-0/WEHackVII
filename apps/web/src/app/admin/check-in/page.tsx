@@ -1,6 +1,9 @@
 import CheckinScanner from "@/components/admin/scanner/CheckinScanner";
 import { getUser } from "db/functions";
 
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
+
 export default async function Page({
 	searchParams,
 }: {

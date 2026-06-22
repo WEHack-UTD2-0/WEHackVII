@@ -7,6 +7,9 @@ import { Button } from "@/components/shadcn/ui/button";
 import { api } from "@/trpc/react";
 import { toast } from "sonner";
 
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
+
 export default function Page() {
 	const [title, setTitle] = useState("");
 	const [description, setDescription] = useState("");

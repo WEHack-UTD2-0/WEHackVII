@@ -1,5 +1,6 @@
 import CheckinScanner from "@/components/admin/scanner/CheckinScanner";
 import { getUser } from "db/functions";
+import { headers } from "next/headers";
 
 export const dynamic = "force-dynamic";
 export const dynamicParams = true;
@@ -9,8 +10,10 @@ export default async function Page({
 }: {
 	searchParams: { [key: string]: string | undefined };
 }) {
-	if (!searchParams.user)
-		return (
+
+	const headersList = headers();
+		if (!searchParams.user)
+			return (
 			<div>
 				<CheckinScanner
 					hasScanned={false}

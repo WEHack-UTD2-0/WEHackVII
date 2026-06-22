@@ -2,6 +2,9 @@
 
 import React, { useEffect, useState } from "react";
 
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
+
 export default function Page() {
     const [mounted, setMounted] = useState(false);
 

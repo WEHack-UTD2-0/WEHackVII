@@ -5,6 +5,9 @@ import ProfileSettings from "@/components/settings/ProfileSettings";
 import RegistrationSettings from "@/components/settings/RegistrationSettings";
 import { getUser } from "db/functions";
 
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
+
 export default async function Page() {
 	const { userId } = auth();
 	if (!userId) return redirect("/sign-in");

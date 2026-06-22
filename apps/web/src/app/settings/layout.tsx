@@ -9,6 +9,9 @@ import { getUser } from "db/functions/user";
 import DashLayout from "../dash/layout";
 import NavbarNonDash from "@/components/shared/NavbarNonDash";
 
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
+
 export default async function ({ children }: { children: ReactNode }) {
 	const { userId } = await auth();
 	const user = await currentUser();

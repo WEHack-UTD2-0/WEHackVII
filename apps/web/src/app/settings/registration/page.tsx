@@ -3,6 +3,9 @@ import { redirect } from "next/navigation";
 import RegistrationFormSettings from "@/components/settings/RegistrationForm/RegisterFormSettings";
 import { getHackerData, getUser } from "db/functions";
 
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
+
 export default async function Page() {
 	const { userId } = auth();
 	if (!userId) return redirect("/sign-in");

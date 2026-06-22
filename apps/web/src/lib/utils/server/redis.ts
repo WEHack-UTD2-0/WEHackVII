@@ -1,7 +1,6 @@
 import { Redis } from "@upstash/redis";
 import type { NavItemToggleType } from "@/validators/shared/navitemtoggle";
 
-// Safeguard against missing or hidden environment variables during Vercel's build-time check
 const redisUrl = process.env.UPSTASH_REDIS_REST_URL || "https://localhost:8079";
 const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN || "mock-token";
 
@@ -11,7 +10,6 @@ const redis = new Redis({
 });
 
 export async function getAllNavItems() {
-    // If running during static build evaluation without real credentials, bail early safely
     if (redisUrl === "https://localhost:8079") {
         return { keys: [], items: [] };
     }

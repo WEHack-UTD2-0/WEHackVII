@@ -1,8 +1,11 @@
 import { Redis } from "@upstash/redis";
 import type { NavItemToggleType } from "@/validators/shared/navitemtoggle";
 
-// Safeguard against missing or hidden environment variables during Vercel's build-time check
-const redisUrl = process.env.UPSTASH_REDIS_REST_URL || "https://localhost:8079";
+const rawRedisUrl = process.env.UPSTASH_REDIS_REST_URL;
+const redisUrl = rawRedisUrl && rawRedisUrl.startsWith("https://") 
+    ? rawRedisUrl 
+    : "https://localhost:8079";
+
 const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN || "mock-token";
 
 const redis = new Redis({

@@ -2,6 +2,9 @@ import { RegistrationToggles } from "@/components/admin/toggles/RegistrationSett
 import { Redis } from "@upstash/redis";
 import { parseRedisBoolean, parseRedisNumber } from "@/lib/utils/server/redis";
 
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
+
 const redis = new Redis({
 	url: process.env.UPSTASH_REDIS_REST_URL,
 	token: process.env.UPSTASH_REDIS_REST_TOKEN,

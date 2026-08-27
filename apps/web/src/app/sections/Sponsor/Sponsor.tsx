@@ -198,14 +198,14 @@ const Sponsor: React.FC = () => {
                                         </div>
                                     );
                                 })}
-                            </div>
+                            </div> 
 
                         </React.Fragment>
                     );
                 })}
 
             </div>
-
+     
             {/* Contact Info */}
              <div className="sponsor-text-container flex flex-col gap-y-5 flex-wrap items-center justify-center mt-20 font-gantari">
                 <p className='sponsor-text text-[#CCBA97] font-medium text-4xl md:text-5xl'>
@@ -221,4 +221,3 @@ const Sponsor: React.FC = () => {
 };
 
 export default Sponsor;
->>>>>>> Annie

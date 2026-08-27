@@ -10,7 +10,7 @@ import Countdown from "./sections/Countdown/Countdown";
 import Gallery from "@/components/Gallery/Gallery";
 // import FilmStrip from "@/components/FilmStrip/FilmStrip";
 import Stats from "@/components/Stats/Stats";
-import Donations from "./sections/Donations/Donations";
+// import Donations from "./sections/Donations/Donations";
 // import Team from "./sections/Team/Team";
 // import Schedule from "./sections/Schedule/Schedule";
 // import Livestream from "./sections/Livestream/Livestream";
@@ -33,7 +33,7 @@ export default function Home() {
       <Stats/>
       <Testimonials/>
       <Sponsor/>
-      <Donations/>
+      {/* <Donations/> */}
       {/* <FAQ/> */}
       {/* <Team/> */}
       <Footer/>

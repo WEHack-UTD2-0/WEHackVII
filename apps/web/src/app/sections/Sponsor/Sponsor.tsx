@@ -124,12 +124,12 @@ const Sponsor: React.FC = () => {
     return (
         <div className='Sponsor-container w-full h-auto flex flex-col items-center p-6 py-20' id="Sponsor">
 
-            <div className="header-3">
+            {/* <div className="header-3">
                 <h1>2026 Sponsors</h1>
-            </div>
+            </div> */}
 
             {/* Grid & Row Rendering */}
-            <div className='Sponsor-grid-wrapper w-full max-w-7xl mx-auto flex flex-col gap-6 md:gap-16 lg:gap-20'>
+            {/* <div className='Sponsor-grid-wrapper w-full max-w-7xl mx-auto flex flex-col gap-6 md:gap-16 lg:gap-20'>
 
                 {Object.keys(groupedSponsors).map((rowKey) => {
                     const rowId = parseInt(rowKey);
@@ -138,7 +138,6 @@ const Sponsor: React.FC = () => {
                     return (
                         <React.Fragment key={rowId}>
 
-                            {/* Tier Title */}
                             {rowTitles[rowId] && (
                                 <div className="Sponsor-title-wrapper w-full text-center mb-6">
                                     <h1 className='Sponsor-title text-3xl md:text-4xl tracking-widest'>
@@ -147,7 +146,6 @@ const Sponsor: React.FC = () => {
                                 </div>
                             )}
 
-                            {/* Row Grid */}
                             <div className='Sponsor-row grid grid-cols-5 gap-5 md:gap-10 lg:gap-12 w-full'>
                                 {rowItems.map((item) => {
 
@@ -204,10 +202,10 @@ const Sponsor: React.FC = () => {
                     );
                 })}
 
-            </div>
+            </div> */}
      
             {/* Contact Info */}
-             <div className="sponsor-text-container flex flex-col gap-y-5 flex-wrap items-center justify-center mt-20 font-gantari">
+            <div className="sponsor-text-container flex flex-col gap-y-5 flex-wrap items-center justify-center mt-20 font-gantari">
                 <p className='sponsor-text text-[#CCBA97] font-medium text-4xl md:text-5xl'>
                     2027 Sponsors Coming Soon
                 </p>

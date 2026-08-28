@@ -6,7 +6,7 @@ import MLHBadge from "@/components/landing/MLHBadge";
 import Footer from "./sections/Footer/Footer";
 import FAQ from "./sections/FAQ/FAQ";
 import Testimonials from "@/app/sections/Testimonials/Testimonials";
-import Countdown from "./sections/Countdown/Countdown";
+// import Countdown from "./sections/Countdown/Countdown";
 import Gallery from "@/components/Gallery/Gallery";
 // import FilmStrip from "@/components/FilmStrip/FilmStrip";
 import Stats from "@/components/Stats/Stats";
@@ -26,7 +26,7 @@ export default function Home() {
       {/* <Livestream/> */}
       {/* <Schedule/> */}
       {/* <Menu /> */}
-      <Countdown/>
+      {/* <Countdown/> */}
       <About/>
       {/* <FilmStrip/> */}
       <Gallery/>

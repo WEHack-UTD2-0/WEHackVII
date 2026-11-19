@@ -2,7 +2,6 @@ import c from "config";
 import RegisterForm from "@/components/registration/RegisterForm";
 import { auth, currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
-import Navbar from "@/components/shared/Navbar";
 import Link from "next/link";
 import { Redis } from "@upstash/redis";
 import { parseRedisBoolean } from "@/lib/utils/server/redis";
@@ -69,11 +68,13 @@ export default async function Page() {
 						<p className="pt-5 text-xl font-semibold">
 							Please complete your registration form in one sitting to not lose your progress! 
 							You must click "Submit" at the end for your registration to be officially submitted.
-							<br></br>
+							<br />
 						</p>
-						<h3 className="pt-5 text-lg font-thin tracking-wide underline font-gantari">Once your form is submitted, you will <b>NOT</b> be able to change your responses, so please answer wisely.</h3>
+						<h3 className="pt-5 text-lg font-thin tracking-wide underline font-gantari">
+							Once your form is submitted, you will <b>NOT</b> be able to change your responses, so please answer wisely.
+						</h3>
 						<p className="pb-10 pt-5 text-xl">
-							Psttt... Running into a issue? Please let us know by
+							Psttt... Running into an issue? Please let us know by
 							emailing <b>wehackutd@gmail.com</b>
 						</p>
 						<RegisterForm
@@ -91,7 +92,6 @@ export default async function Page() {
 		<main className="flex min-h-screen flex-col items-center justify-center px-2">
 			<div className="max-w-screen fixed left-1/2 top-[calc(50%+7rem)] h-[40vh] w-[800px] -translate-x-1/2 -translate-y-1/2 scale-150 overflow-x-hidden bg-background" />
 			<h2 className="text-4xl font-extrabold">{c.hackathonName}</h2>
-			{/* Why is this not a component? This same code is in here and insideo of sign-up */}
 			<h1 className="mb-10 pb-5 text-6xl font-extrabold text-hackathon md:text-8xl">
 				Registration
 			</h1>
@@ -103,14 +103,8 @@ export default async function Page() {
 				<p className="text-center font-bold">
 					If you believe this is a mistake or have any questions, feel
 					free to reach out to us at {c.issueEmail}!
-					{/* More information about WEHack 2026 will come out soon. In the meantime, fill out our interest form to get updates from us. */}
+					{/* More information about WEHack 2027 will come out soon. In the meantime, fill out our interest form to get updates from us. */}
 				</p>
-				{/* <Link href="https://events.mlh.io/events/12674-wehack-2026" target="_blank">
-                    <Button className="bg-[#D09C51] hover:bg-[#CCBA97]">
-                        Interest Form!
-                    </Button>
-                </Link> */}
-
 				<Link href={"/"}>
 					<Button className="bg-[#D09C51] hover:bg-[#CCBA97]">Return Home</Button>
 				</Link>

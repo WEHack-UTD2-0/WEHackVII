@@ -562,6 +562,9 @@ const dietaryRestrictionOptions = [
 	"None",
 ];
 
+const dietaryDisclaimer =
+	"I understand that WEHack will do their best to accommodate dietary restrictions, but they cannot guarantee that food served at the event is free of any specific allergen. I accept responsibility for the food I choose to eat.";
+
 const countries = [
 	{ name: "United States", code: "US" },
 	{ name: "Afghanistan", code: "AF" },
@@ -758,32 +761,24 @@ const countries = [
 ];
 
 const raceOptions = [
-	"Asian Indian",
-	"Black or African",
-	"Chinese",
-	"Filipino",
-	"Guamanian or Chamorro",
-	"Hispanic / Latino / Spanish Origin",
-	"Japanese",
-	"Korean",
-	"Middle Eastern",
-	"Native American or Alaskan Native",
-	"Native Hawaiian",
-	"Samoan",
-	"Vietnamese",
+	"American Indian or Alaska Native",
+	"Asian",
+	"Black or African American",
+	"Hispanic or Latino",
+	"Middle Eastern or North African",
+	"Native Hawaiian or Other Pacific Islander",
 	"White",
-	"Other Asian (Thai, Cambodian, etc)",
-	"Other Pacific Islander",
+	"Two or More Races",
 	"Other",
 	"Prefer Not to Answer",
 ];
 
 const c = {
 	hackathonName: "WEHack",
-	itteration: "VI",
+	itteration: "VII",
 	siteUrl: "https://www.wehackutd.com", // Do not have a trailing slash
-	defaultMetaDataDescription: "WEHack 2026 is coming in April 2026",
-	rsvpDefaultLimit:500,
+	defaultMetaDataDescription: "WEHack 2027 is coming in April 2027",
+	rsvpDefaultLimit: 500,
 	botName: "WEHack",
 	botParticipantRole: "Participant",
 	hackathonTimezone: "America/Chicago",
@@ -795,6 +790,7 @@ const c = {
 		majors,
 		levelsOfStudy,
 		dietaryRestrictionOptions,
+		dietaryDisclaimer,
 		countries,
 		raceOptions,
 	},
@@ -832,7 +828,7 @@ const c = {
 	},
 	issueEmail: "wehackutd@gmail.com",
 	links: {
-		discord: "https://discord.gg/er88cEJNDE", 
+		discord: "https://discord.gg/er88cEJNDE",
 		instagram: "https://www.instagram.com/wehackutd",
 		facebook: "https://www.facebook.com/WEHackUTD/",
 		twitter: "https://x.com/wehackutd",
@@ -882,7 +878,7 @@ const c = {
 	noResumeProvidedURL:
 		"https://static.acmutsa.org/No%20Resume%20Provided.pdf",
 	// Come in and change this date to whenever the hackathon starts
-	startDate: new Date(new Date(2026, 3, 11).setHours(10)),
+	startDate: new Date(new Date(2027, 3, 10).setHours(10)),
 	prettyLocation: "Engineering and Computer Science West (ECSW)",
 	roleBadges: {
 		hacker: {

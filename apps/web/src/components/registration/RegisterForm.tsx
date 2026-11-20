@@ -166,11 +166,9 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 
 			if (uploadResult) {
 				// Extract the uploaded file information (URL, etc.)
-				const {serverData: {
-					fileUrl,
-					uploadedBy
-					
-				}} = uploadResult[0];
+				const {
+					serverData: { fileUrl, uploadedBy },
+				} = uploadResult[0];
 
 				// const uploadedFileData = uploadResult[0];
 				// console.log(UploadedFileData)
@@ -218,40 +216,6 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 			alert(`Please upload a resume`);
 			return console.log(`User has not uploaded a resume`);
 		}
-
-		// const res = await zpostSafe({
-		// 	url: "/api/registration/create",
-		// 	body: { ...data, resume },
-		// 	vRes: BasicServerValidator,
-		// });
-
-		// if (res.success) {
-		// 	if (res.data.success) {
-		// 		alert(
-		// 			"Registration successfully created! Redirecting to the dashboard.",
-		// 		);
-		// 		router.push("/dash");
-		// 	} else {
-		// 		if (res.data.message == "hackertag_not_unique") {
-		// 			setIsLoading(false);
-		// 			return alert(
-		// 				"The HackerTag you chose has already been taken. Please change it and then resubmit the form.",
-		// 			);
-		// 		}
-		// 		setIsLoading(false);
-		// 		return alert(
-		// 			`Registration not created. Error message: \n\n ${res.data.message} \n\n Please try again. If this is a continuing issue, please reach out to us at ${c.issueEmail}.`,
-		// 		);
-		// 	}
-		// } else {
-		// 	setIsLoading(false);
-		// 	alert(
-		// 		`Something went wrong while attempting to register. Please try again. If this is a continuing issue, please reach out to us at ${c.issueEmail}.`,
-		// 	)
-		// 	return console.log(
-		// 		`Recieved a unexpected response from the server. Please try again. If this is a continuing issue, please reach out to us at ${c.issueEmail}.`,
-		// 	);
-		// }
 	}
 
 	const onDrop = useCallback(
@@ -262,21 +226,19 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 				);
 			}
 			if (acceptedFiles.length > 0) {
-				console.log("testing")
+				console.log("testing");
 				setResumeFile(acceptedFiles[0]);
-				form.setValue("uploadedFile", acceptedFiles[0])
+				form.setValue("uploadedFile", acceptedFiles[0]);
 			}
 		},
 		[],
 	);
 
-	const currentFile = form.watch("uploadedFile")
+	const currentFile = form.watch("uploadedFile");
 
-	useEffect(()=>{
-		console.log("file:",currentFile);
-	},[currentFile])
-
-
+	useEffect(() => {
+		console.log("file:", currentFile);
+	}, [currentFile]);
 
 	const { getRootProps, getInputProps, isDragActive } = useDropzone({
 		onDrop,
@@ -284,14 +246,6 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 			generatePermittedFileTypes(routeConfig).fileTypes,
 		),
 	});
-	// const { getRootProps, getInputProps, isDragActive } = useDropzone({
-	// 	onDrop,
-	// 	multiple: false,
-	// 	accept: { "application/pdf": [".pdf"] },
-	// 	maxSize: c.maxResumeSizeInBytes,
-	// 	noClick: resumeFile != null,
-	// 	noDrag: resumeFile != null,
-	// });
 
 	if (isLoading) {
 		return <CreatingRegistration />;
@@ -677,7 +631,9 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 											<Link
 												target="_blank"
 												className="underline"
-												href={"https://github.com/MLH/mlh-policies/blob/main/contest-terms.md"}
+												href={
+													"https://github.com/MLH/mlh-policies/blob/main/contest-terms.md"
+												}
 											>
 												MLH Contest Terms and Conditions
 											</Link>{" "}
@@ -713,10 +669,10 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 									</FormControl>
 									<div className="space-y-1 leading-none">
 										<FormLabel>
-											I authorize MLH to send me 
-											occasional emails about 
-											relevant events, career opportunities, 
-											and community announcements.
+											I authorize MLH to send me
+											occasional emails about relevant
+											events, career opportunities, and
+											community announcements.
 										</FormLabel>
 										<FormDescription>
 											This is optional.
@@ -1157,7 +1113,7 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 										<FormLabel className="flex flex-row gap-x-2">
 											In what ways do you hope to make a
 											positive impact through your project
-											at WEHack 2026?{" "}
+											at WEHack 2027?{" "}
 											<p className="text-[#F03C2D]">*</p>
 										</FormLabel>
 										<FormControl>
@@ -1297,6 +1253,9 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 											),
 										)}
 										<FormMessage />
+										<FormDescription className="pt-2 text-xs leading-relaxed">
+											{c.registration.dietaryDisclaimer}
+										</FormDescription>
 									</FormItem>
 								)}
 							/>
@@ -1394,16 +1353,17 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 											<input
 												{...getInputProps()}
 												onChange={(e) => {
-													console.log(e.target.files?.[0]);
+													console.log(
+														e.target.files?.[0],
+													);
 													field.onChange(
-														e.target.files?.[0]
-														
+														e.target.files?.[0],
 													);
 													setResumeFile(
 														e.target.files?.[0] ||
 															null,
 													);
-													console.log("hey")
+													console.log("hey");
 												}}
 											/>
 											<p className="p-2 text-center text-xl">
@@ -1556,7 +1516,11 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 											/>
 										</FormControl>
 										<FormDescription className="!mt-0 tracking-wide text-md">
-											<b>Tags can only be less than 50 characters! You can have a max of 10 tags.</b>
+											<b>
+												Tags can only be less than 50
+												characters! You can have a max
+												of 10 tags.
+											</b>
 											<br></br>
 											These skills can be listed on your
 											profile and help with the team

@@ -13,10 +13,7 @@ const countryCodesArray = c.registration.countries.map(
 	(countryObject) => countryObject.code,
 );
 
-const phoneRegex = new RegExp(
-	/^(?:\d{3}-\d{3}-\d{4}|\d{10})$/
-);
-  
+const phoneRegex = new RegExp(/^(?:\d{3}-\d{3}-\d{4}|\d{10})$/);
 
 export const RegisterFormValidator = z.object({
 	firstName: z.string().min(1, { message: "Required" }),
@@ -50,23 +47,14 @@ export const RegisterFormValidator = z.object({
 		z.literal("PREFERNOTSAY", defaultPrettyError),
 	]),
 	race: z.union([
-		z.literal("Asian Indian", defaultPrettyError),
-		z.literal("Asian (Other)", defaultPrettyError),
-		z.literal("Black or African", defaultPrettyError),
-		z.literal("Chinese", defaultPrettyError),
-		z.literal("Filipino", defaultPrettyError),
-		z.literal("Guamanian or Chamorro", defaultPrettyError),
-		z.literal("Hispanic / Latino / Spanish Origin", defaultPrettyError),
-		z.literal("Japanese", defaultPrettyError),
-		z.literal("Korean", defaultPrettyError),
-		z.literal("Middle Eastern", defaultPrettyError),
-		z.literal("Native American or Alaskan Native", defaultPrettyError),
-		z.literal("Native Hawaiian", defaultPrettyError),
-		z.literal("Samoan", defaultPrettyError),
-		z.literal("Vietnamese", defaultPrettyError),
+		z.literal("American Indian or Alaska Native", defaultPrettyError),
+		z.literal("Asian", defaultPrettyError),
+		z.literal("Black or African American", defaultPrettyError),
+		z.literal("Hispanic or Latino", defaultPrettyError),
+		z.literal("Middle Eastern or North African", defaultPrettyError),
+		z.literal("Native Hawaiian or Other Pacific Islander", defaultPrettyError),
 		z.literal("White", defaultPrettyError),
-		z.literal("Other Asian (Thai, Cambodian, etc)", defaultPrettyError),
-		z.literal("Other Pacific Islander", defaultPrettyError),
+		z.literal("Two or More Races", defaultPrettyError),
 		z.literal("Other", defaultPrettyError),
 		z.literal("Prefer Not to Answer", defaultPrettyError),
 	]),
@@ -74,9 +62,13 @@ export const RegisterFormValidator = z.object({
 		z.literal("Hispanic or Latino", defaultPrettyError),
 		z.literal("Not Hispanic or Latino", defaultPrettyError),
 	]),
-	phoneNumber: z.string().min(10).max(30, {
-		message: "Phone number must be less than 15 characters",
-	}).regex(phoneRegex, 'Invalid Number'),
+	phoneNumber: z
+		.string()
+		.min(10)
+		.max(30, {
+			message: "Phone number must be less than 15 characters",
+		})
+		.regex(phoneRegex, "Invalid Number"),
 	countryOfResidence: z
 		.string()
 		.min(1, "Please select a country of residence."),
@@ -90,12 +82,6 @@ export const RegisterFormValidator = z.object({
 	isEmailable: z.boolean(),
 	university: z.string().min(1, "Please select a university").max(200),
 	major: z.string().min(1, "Please select a major").max(200),
-	// schoolID: z
-	// 	.string()
-	// 	.length(c.localUniversityShortIDMaxLength, {
-	// 		message: `${c.localUniversitySchoolIDName} must be than ${c.localUniversityShortIDMaxLength} characters.`,
-	// 	})
-	// 	.or(z.literal("NOT_LOCAL_SCHOOL")),
 	levelOfStudy: z.union([
 		z.literal("Freshman", defaultPrettyError),
 		z.literal("Sophomore", defaultPrettyError),
@@ -181,25 +167,29 @@ export const RegisterFormValidator = z.object({
 	skills: z.array(
 		z.object({
 			id: z.string(),
-			text: z.string()
+			text: z.string(),
 		}),
 	),
 	profileIsSearchable: z.boolean(),
-	questionOne: z.string()
-	.min(1, { message: "Required" }).max(500, { message: "Response must be less than 500 characters." }),
-	questionTwo: z.string().min(1, { message: "Required" }).max(500, { message: "Response must be less than 500 characters." }),
-	questionThree: z.string().min(1, { message: "Required" }).max(500, { message: "Response must be less than 500 characters." }),
-	// uploadedFile: z
-	// 	.instanceof(File, {
-	// 		message: "Please upload a PDF of your resume.",
-	// 	})
-	// 	.nullable(),
-	uploadedFile: z
-		.any()
-		.refine((file) => {
+	questionOne: z
+		.string()
+		.min(1, { message: "Required" })
+		.max(500, { message: "Response must be less than 500 characters." }),
+	questionTwo: z
+		.string()
+		.min(1, { message: "Required" })
+		.max(500, { message: "Response must be less than 500 characters." }),
+	questionThree: z
+		.string()
+		.min(1, { message: "Required" })
+		.max(500, { message: "Response must be less than 500 characters." }),
+	uploadedFile: z.any().refine(
+		(file) => {
 			console.log("zod:", file);
-			return(file !== null && file !== undefined)
-		}, {
+			return file !== null && file !== undefined;
+		},
+		{
 			message: "Please upload a PDF of your resume before submitting.",
-		}),
+		},
+	),
 });

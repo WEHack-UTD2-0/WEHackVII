@@ -9,9 +9,7 @@ const countryCodesArray = c.registration.countries.map(
 	(countryObject) => countryObject.code,
 );
 
-const phoneRegex = new RegExp(
-	/^(?:\d{3}-\d{3}-\d{4}|\d{10})$/
-);
+const phoneRegex = new RegExp(/^(?:\d{3}-\d{3}-\d{4}|\d{10})$/);
 
 export const RegistrationSettingsFormValidator = z.object({
 	age: z
@@ -37,23 +35,14 @@ export const RegistrationSettingsFormValidator = z.object({
 		z.literal("PREFERNOTSAY", defaultPrettyError),
 	]),
 	race: z.union([
-		z.literal("Asian Indian", defaultPrettyError),
-		z.literal("Asian (Other)", defaultPrettyError),
-		z.literal("Black or African", defaultPrettyError),
-		z.literal("Chinese", defaultPrettyError),
-		z.literal("Filipino", defaultPrettyError),
-		z.literal("Guamanian or Chamorro", defaultPrettyError),
-		z.literal("Hispanic / Latino / Spanish Origin", defaultPrettyError),
-		z.literal("Japanese", defaultPrettyError),
-		z.literal("Korean", defaultPrettyError),
-		z.literal("Middle Eastern", defaultPrettyError),
-		z.literal("Native American or Alaskan Native", defaultPrettyError),
-		z.literal("Native Hawaiian", defaultPrettyError),
-		z.literal("Samoan", defaultPrettyError),
-		z.literal("Vietnamese", defaultPrettyError),
+		z.literal("American Indian or Alaska Native", defaultPrettyError),
+		z.literal("Asian", defaultPrettyError),
+		z.literal("Black or African American", defaultPrettyError),
+		z.literal("Hispanic or Latino", defaultPrettyError),
+		z.literal("Middle Eastern or North African", defaultPrettyError),
+		z.literal("Native Hawaiian or Other Pacific Islander", defaultPrettyError),
 		z.literal("White", defaultPrettyError),
-		z.literal("Other Asian (Thai, Cambodian, etc)", defaultPrettyError),
-		z.literal("Other Pacific Islander", defaultPrettyError),
+		z.literal("Two or More Races", defaultPrettyError),
 		z.literal("Other", defaultPrettyError),
 		z.literal("Prefer Not to Answer", defaultPrettyError),
 	]),
@@ -61,9 +50,13 @@ export const RegistrationSettingsFormValidator = z.object({
 		z.literal("Hispanic or Latino", defaultPrettyError),
 		z.literal("Not Hispanic or Latino", defaultPrettyError),
 	]),
-	phoneNumber: z.string().min(10).max(30, {
-		message: "Phone number must be less than 15 characters",
-	}).regex(phoneRegex, 'Invalid Number'),
+	phoneNumber: z
+		.string()
+		.min(10)
+		.max(30, {
+			message: "Phone number must be less than 15 characters",
+		})
+		.regex(phoneRegex, "Invalid Number"),
 	countryOfResidence: z.string().length(2),
 	isEmailable: z.boolean(),
 	university: z.string().min(1).max(200),
@@ -131,22 +124,25 @@ export const RegistrationSettingsFormValidator = z.object({
 		.string()
 		.max(100, { message: "URL must be less than 100 characters" })
 		.optional(),
-	questionOne: z.string()
+	questionOne: z
+		.string()
 		.min(1, { message: "Required" })
 		.max(500, { message: "Response must be less than 500 characters." }),
-	questionTwo: z.string()
+	questionTwo: z
+		.string()
 		.min(1, { message: "Required" })
 		.max(500, { message: "Response must be less than 500 characters." }),
-	questionThree: z.string()
+	questionThree: z
+		.string()
 		.min(1, { message: "Required" })
 		.max(500, { message: "Response must be less than 500 characters." }),
-	resumeFile: z
-		.any()
-		.refine((file) => {
+	resumeFile: z.any().refine(
+		(file) => {
 			console.log("zod:", file);
-			return(file !== null && file !== undefined)
-		}, {
+			return file !== null && file !== undefined;
+		},
+		{
 			message: "Please upload a PDF of your resume before submitting.",
-		}),
-	
+		},
+	),
 });

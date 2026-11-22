@@ -77,7 +77,7 @@ export const RegisterFormValidator = z.object({
 	}),
 	hasSharedDataWithMLH: z.boolean().refine((val) => val === true, {
 		message:
-			"You must accept the MLH Terms & Conditions and Privacy Policy.",
+			"You must accept the MLH Contest Terms & Conditions and Privacy Policy.",
 	}),
 	isEmailable: z.boolean(),
 	university: z.string().min(1, "Please select a university").max(200),
@@ -129,6 +129,9 @@ export const RegisterFormValidator = z.object({
 	dietaryRestrictions: z
 		.array(z.string())
 		.min(1, "At least one dietary restriction must be selected."),
+	hasAcceptedDietaryDisclaimer: z.boolean().refine((val) => val === true, {
+		message: "You must acknowledge the dietary restrictions disclaimer.",
+	}),
 	accommodationNote: z.string().optional(),
 	github: z
 		.string()

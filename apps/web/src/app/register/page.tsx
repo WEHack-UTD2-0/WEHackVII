@@ -34,9 +34,9 @@ export default async function Page() {
 
 	if (parseRedisBoolean(defaultRegistrationEnabled, true) === true) {
 		return (
-			<>
-				<div className="z-50 w-screen pt-6">
-					<div className="relative top-0 z-50 h-16 w-screen">
+			<div className="min-h-screen w-full bg-[#00072D] font-ibm-plex-mono text-[#C5D9EB] selection:bg-[#EFB5D5] selection:text-[#00072D]">
+				<div className="z-50 w-full pt-6">
+					<div className="relative top-0 z-50 h-16 w-full">
 						<div className="mx-auto grid h-full w-full max-w-7xl grid-flow-col grid-cols-2 px-2 sm:px-6 lg:max-w-full lg:px-8">
 							<div className="col-span-3 flex items-center justify-start gap-x-5 pl-4 md:pl-0">
 								<Link
@@ -48,69 +48,130 @@ export default async function Page() {
 										alt={c.hackathonName + " Logo"}
 										width={60}
 										height={60}
-										className={"drop-shadow-[0_0px_0px_rgba(255,255,255,0.90)]"}
+										className="drop-shadow-[0_0_10px_rgba(197,217,235,0.65)]"
 									/>
 								</Link>
 							</div>
 						</div>
 					</div>
 				</div>
-				<main className="dark:bg-[#301814]">
-					<div className="mx-auto min-h-screen max-w-5xl px-5 pb-10 pt-[20vh] font-sans dark:text-[#CCBA97]">
-						<h1 className="text-6xl font-black md:text-8xl text-hackathon font-cinzel-decorative">
+				<main className="bg-[#00072D]">
+					<div className="mx-auto min-h-screen max-w-5xl px-5 pb-16 pt-[10vh]">
+						<h1
+							className="font-dela-gothic text-5xl tracking-wide text-[#C5D9EB] sm:text-7xl md:text-8xl"
+							style={{
+								fontFamily: "var(--font-dela-gothic), 'Dela Gothic One', sans-serif",
+								textShadow: "4px 4px 0px #538FDD",
+							}}
+						>
 							Register
 						</h1>
-						<p className="mt-5 font-medium text-2xl">
-							<span className="font-bold">Welcome Hacker!</span>{" "}
+
+						<p
+							className="mt-6 font-zen-maru text-xl font-bold text-[#EDD0E0] md:text-2xl"
+							style={{
+								fontFamily: "var(--font-zen-maru), 'Zen Maru Gothic', sans-serif",
+							}}
+						>
+							<span className="text-[#E4DFAA]">
+								Welcome Hacker!
+							</span>{" "}
 							Please fill out the form below to complete your
 							registration for {c.hackathonName}.
 						</p>
-						<p className="pt-5 text-xl font-semibold">
-							Please complete your registration form in one sitting to not lose your progress! 
-							You must click "Submit" at the end for your registration to be officially submitted.
-							<br />
-						</p>
-						<h3 className="pt-5 text-lg font-thin tracking-wide underline font-gantari">
-							Once your form is submitted, you will <b>NOT</b> be able to change your responses, so please answer wisely.
-						</h3>
-						<p className="pb-10 pt-5 text-xl">
-							Psttt... Running into an issue? Please let us know by
-							emailing <b>wehackutd@gmail.com</b>
-						</p>
-						<RegisterForm
-							defaultEmail={
-								user.emailAddresses[0]?.emailAddress || ""
-							}
-						/>
+
+						<div className="mt-6 rounded-xl border-2 border-[#538FDD] bg-[#060F38] p-5 shadow-[4px_4px_0px_#538FDD]">
+							<p
+								className="font-ibm-plex-mono text-base font-semibold text-[#C5D9EB] md:text-lg"
+								style={{
+									fontFamily: "var(--font-ibm-plex-mono), 'IBM Plex Mono', monospace",
+								}}
+							>
+								Please complete your registration form in one
+								sitting to not lose your progress! You must
+								click{" "}
+								<span className="text-[#EFB5D5]">"Submit"</span>{" "}
+								at the end for your registration to be
+								officially submitted.
+							</p>
+							<h3
+								className="mt-3 font-zen-maru text-base font-bold tracking-wide text-[#E4DFAA]"
+								style={{
+									fontFamily: "var(--font-zen-maru), 'Zen Maru Gothic', sans-serif",
+								}}
+							>
+								Once your form is submitted, you will{" "}
+								<span className="underline decoration-[#EFB5D5] decoration-2">
+									NOT
+								</span>{" "}
+								be able to change your responses, so please
+								answer wisely.
+							</h3>
+							<p
+								className="mt-3 font-ibm-plex-mono text-sm text-[#EDD0E0] md:text-base"
+								style={{
+									fontFamily: "var(--font-ibm-plex-mono), 'IBM Plex Mono', monospace",
+								}}
+							>
+								Psttt... Running into an issue? Please let us
+								know by emailing{" "}
+								<b className="text-[#E4DFAA]">
+									wehackutd@gmail.com
+								</b>
+							</p>
+						</div>
+
+						<div className="mt-12">
+							<RegisterForm
+								defaultEmail={
+									user.emailAddresses[0]?.emailAddress || ""
+								}
+							/>
+						</div>
 					</div>
 				</main>
-			</>
+			</div>
 		);
 	}
 
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-center px-2">
-			<div className="max-w-screen fixed left-1/2 top-[calc(50%+7rem)] h-[40vh] w-[800px] -translate-x-1/2 -translate-y-1/2 scale-150 overflow-x-hidden bg-background" />
-			<h2 className="text-4xl font-extrabold">{c.hackathonName}</h2>
-			<h1 className="mb-10 pb-5 text-6xl font-extrabold text-hackathon md:text-8xl">
+		<main className="flex min-h-screen flex-col items-center justify-center bg-[#00072D] px-2 font-ibm-plex-mono text-[#C5D9EB]">
+			<h2
+				className="font-zen-maru text-4xl font-extrabold text-[#EFB5D5]"
+				style={{
+					fontFamily: "var(--font-zen-maru), 'Zen Maru Gothic', sans-serif",
+				}}
+			>
+				{c.hackathonName}
+			</h2>
+			<h1
+				className="mb-10 pb-5 font-dela-gothic text-5xl tracking-wide text-[#C5D9EB] md:text-7xl"
+				style={{
+					fontFamily: "var(--font-dela-gothic), 'Dela Gothic One', sans-serif",
+					textShadow: "4px 4px 0px #538FDD",
+				}}
+			>
 				Registration
 			</h1>
-			<div className="relative z-10 flex aspect-video w-full max-w-[500px] flex-col items-center justify-center gap-y-4 rounded-xl px-5 py-4">
-				<h2 className="text-center text-2xl font-black">
+			<div className="relative z-10 flex w-full max-w-[500px] flex-col items-center justify-center gap-y-4 rounded-xl border-2 border-[#538FDD] bg-[#060F38] px-6 py-6 shadow-[4px_4px_0px_#538FDD]">
+				<h2 className="text-center font-zen-maru text-2xl font-black text-[#E4DFAA]">
 					Registration Is Currently Closed
-					{/* More Information Coming Soon! */}
 				</h2>
-				<p className="text-center font-bold">
+				<p className="text-center text-sm font-medium text-[#EDD0E0]">
 					If you believe this is a mistake or have any questions, feel
 					free to reach out to us at {c.issueEmail}!
-					{/* More information about WEHack 2027 will come out soon. In the meantime, fill out our interest form to get updates from us. */}
 				</p>
 				<Link href={"/"}>
-					<Button className="bg-[#D09C51] hover:bg-[#CCBA97]">Return Home</Button>
+					<Button className="border-2 border-[#C5D9EB] bg-[#538FDD] font-dela-gothic text-white shadow-[3px_3px_0px_#EFB5D5] hover:bg-[#EFB5D5] hover:text-[#00072D]">
+						Return Home
+					</Button>
 				</Link>
-				<p className="text-center text-sm">
+				<p className="text-center text-sm text-[#C5D9EB]">
 					Already registered?
-					<Link className="pl-1 underline" href={"/sign-in"}>
+					<Link
+						className="pl-1 text-[#EFB5D5] underline hover:text-[#E4DFAA]"
+						href={"/sign-in"}
+					>
 						Sign-in.
 					</Link>
 				</p>

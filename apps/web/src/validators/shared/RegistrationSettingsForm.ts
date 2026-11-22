@@ -72,6 +72,9 @@ export const RegistrationSettingsFormValidator = z.object({
 		z.literal("Sophomore", defaultPrettyError),
 		z.literal("Junior", defaultPrettyError),
 		z.literal("Senior", defaultPrettyError),
+		z.literal("Master's", defaultPrettyError),
+		z.literal("PhD", defaultPrettyError),
+		z.literal("High School - 18 years old", defaultPrettyError),
 		z.literal("Recent Grad", defaultPrettyError),
 		z.literal("Other", defaultPrettyError),
 	]),
@@ -99,6 +102,7 @@ export const RegistrationSettingsFormValidator = z.object({
 			z.literal("Twitter"),
 			z.literal("Event Site"),
 			z.literal("Friend"),
+			z.literal("LinkedIn"),
 			z.literal("Other"),
 		])
 		.optional(),

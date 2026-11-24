@@ -122,6 +122,7 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 			questionTwo: "",
 			questionThree: "",
 			uploadedFile: undefined,
+			optOutResumeSharing: false,
 		},
 	});
 
@@ -1656,7 +1657,7 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 								)}
 							/>
 						</div>
-						<div className="mt-4">
+						<div className="mt-4 space-y-4">
 							<FormField
 								control={form.control}
 								name="uploadedFile"
@@ -1715,6 +1716,28 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 											</div>
 										</FormControl>
 										<FormMessage className="text-[#EFB5D5]" />
+									</FormItem>
+								)}
+							/>
+
+							<FormField
+								control={form.control}
+								name="optOutResumeSharing"
+								render={({ field }) => (
+									<FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-lg border border-[#538FDD]/70 bg-[#00072D]/70 p-4">
+										<FormControl>
+											<Checkbox
+												checked={field.value}
+												onCheckedChange={field.onChange}
+												className={checkboxClasses}
+											/>
+										</FormControl>
+										<div className="space-y-1.5 leading-none">
+											<FormLabel className="cursor-pointer font-ibm-plex-mono text-sm font-normal leading-relaxed text-[#C5D9EB]">
+												Opt out of sharing my resume
+												with sponsors
+											</FormLabel>
+										</div>
 									</FormItem>
 								)}
 							/>

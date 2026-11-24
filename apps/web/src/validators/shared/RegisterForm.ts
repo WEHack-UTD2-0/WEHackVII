@@ -195,4 +195,5 @@ export const RegisterFormValidator = z.object({
 			message: "Please upload a PDF of your resume before submitting.",
 		},
 	),
+	optOutResumeSharing: z.boolean().default(false),
 });
